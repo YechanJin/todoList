@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:8080
+
+//create new task
+###
+POST {{baseUrl}}/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "content" : "task1"
+}
+
+//get all tasks
+###
+GET {{baseUrl}}/tasks HTTP/1.1
+
+//get one task
+###
+GET {{baseUrl}}/tasks/1 HTTP/1.1
+
+// update state
+###
+PATCH  {{baseUrl}}/tasks/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "state" : "active"
+}
+
+//update content
+###
+PATCH  {{baseUrl}}/tasks/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "content" : "task2"
+}
+
+//delete one task
+###
+DELETE {{baseUrl}}/tasks/2 HTTP/1.1
